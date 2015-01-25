@@ -9,9 +9,7 @@
 /* Begin PBXBuildFile section */
 		0DAA693F1A6B22EE00454F2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAA693E1A6B22EE00454F2B /* AppDelegate.swift */; };
 		0DAA69421A6B22EE00454F2B /* MiniCeeting.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0DAA69401A6B22EE00454F2B /* MiniCeeting.xcdatamodeld */; };
-		0DAA69471A6B22EE00454F2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DAA69451A6B22EE00454F2B /* Main.storyboard */; };
 		0DAA69491A6B22EE00454F2B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DAA69481A6B22EE00454F2B /* Images.xcassets */; };
-		0DAA694C1A6B22EE00454F2B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DAA694A1A6B22EE00454F2B /* LaunchScreen.xib */; };
 		0DAA69581A6B22EE00454F2B /* MiniCeetingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAA69571A6B22EE00454F2B /* MiniCeetingTests.swift */; };
 		0DAA69641A6B24A000454F2B /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DAA69621A6B24A000454F2B /* Crashlytics.framework */; };
 		0DAA69651A6B24A000454F2B /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DAA69631A6B24A000454F2B /* Fabric.framework */; };
@@ -20,6 +18,8 @@
 		0DAA696B1A6B3B1700454F2B /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAA696A1A6B3B1700454F2B /* Array2D.swift */; };
 		0DAA69751A7442AD00454F2B /* Seat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAA69741A7442AD00454F2B /* Seat.swift */; };
 		0DAA69771A744DF300454F2B /* SeatOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAA69761A744DF300454F2B /* SeatOptionViewController.swift */; };
+		0DCBF8301A74D35A00751391 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DAA69451A6B22EE00454F2B /* Main.storyboard */; };
+		0DCBF8311A74D36000751391 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DAA694A1A6B22EE00454F2B /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -221,8 +221,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DAA69471A6B22EE00454F2B /* Main.storyboard in Resources */,
-				0DAA694C1A6B22EE00454F2B /* LaunchScreen.xib in Resources */,
+				0DCBF8311A74D36000751391 /* LaunchScreen.xib in Resources */,
+				0DCBF8301A74D35A00751391 /* Main.storyboard in Resources */,
 				0DAA69491A6B22EE00454F2B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,7 +239,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		0DAA69611A6B247E00454F2B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -323,7 +323,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Clemente Gomez";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Clemente Gomez (J6QQRR742E)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -368,7 +368,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Clemente Gomez";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Clemente Gomez (J6QQRR742E)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

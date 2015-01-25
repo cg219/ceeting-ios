@@ -2,13 +2,8 @@
 //  MiniCeetingTests.swift
 //  MiniCeetingTests
 //
-<<<<<<< HEAD
 //  Created by Clemente Gomez on 1/17/15.
 //  Copyright (c) 2015 Clemente Gomez. All rights reserved.
-=======
-//  Created by Clemente Gomez on 11/8/14.
-//  Copyright (c) 2014 Clemente Gomez. All rights reserved.
->>>>>>> 2f22a6ad3bb7e967ec6503369078b6b82aeb8a74
 //
 
 import UIKit

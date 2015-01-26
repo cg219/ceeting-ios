@@ -15,11 +15,21 @@ import Crashlytics
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var mainController: SeatChartController?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         Fabric.with([Crashlytics()])
+        
+        let parentController = UIViewController();
+        
+        self.mainController = SeatChartController();
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds);
+        
+        self.window?.backgroundColor = UIColor.whiteColor();
+        self.window?.rootViewController = self.mainController;
+        self.window?.makeKeyAndVisible();
         
         return true
     }

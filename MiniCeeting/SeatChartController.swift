@@ -16,6 +16,12 @@ class SeatChartController: UIViewController, UIPopoverPresentationControllerDele
     var context: NSManagedObjectContext!;
     var entity: NSEntityDescription!;
     var storedSeats:[String: AnyObject] = Dictionary<String, AnyObject>();
+    var seats:[SeatController] = [SeatController]();
+    let notificationCenter = NSNotificationCenter.defaultCenter();
+    let options = OptionsPanel();
+    var splashShown = false;
+    let imkreative = UIViewController();
+    let imkreativeView = UIImageView(image: UIImage(named: "iPad-landscape.png"));
     
     var seatLayout:Array<[Int]> = [
         [1, 1, 1, 1, 1, 1, 1, 1, 1 ,1 ,1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -59,17 +65,76 @@ class SeatChartController: UIViewController, UIPopoverPresentationControllerDele
         self.request.entity = self.entity;
     }
     
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
+        self.request.returnsObjectsAsFaults = false;
+        self.context = appDelegate.managedObjectContext?;
+        self.entity = NSEntityDescription.entityForName("Seat", inManagedObjectContext: self.context!);
+        self.request.entity = self.entity;
+    }
+    
+    override init() {
+        super.init();
+        self.request.returnsObjectsAsFaults = false;
+        self.context = appDelegate.managedObjectContext?;
+        self.entity = NSEntityDescription.entityForName("Seat", inManagedObjectContext: self.context!);
+        self.request.entity = self.entity;
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.backgroundColor = UIColor(red: 0, green: 0.06, blue: 0.1, alpha: 1);
         seatLayer = UIView( frame: CGRect(
-            x: 0,
-            y: 0,
+            x: 40,
+            y: 130,
             width: self.view.frame.size.width,
             height: self.view.frame.size.height));
-        seatLayer!.backgroundColor = UIColor.darkGrayColor();
         initSeats();
+        addInfoButton();
+        addScreen();
+        addTopBar();
+        imkreative.view.addSubview(imkreativeView);
         self.view.addSubview(seatLayer!);
+        self.view.addSubview(imkreative.view);
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated);
+        if (!splashShown) {
+            self.splashShown = true;
+            UIView.animateWithDuration(0.5, delay: 1.0, options: .CurveEaseInOut, animations: { _ in
+                    self.imkreative.view.alpha = 0;
+                }, completion: { finished in
+                    self.imkreative.view.removeFromSuperview();
+            })
+        }
+    }
+    
+    func addScreen(){
+        let screen = UIView(frame: CGRect(x: 40, y: UIScreen.mainScreen().bounds.size.height - 15.0, width: UIScreen.mainScreen().bounds.size.width - 80.0, height: 5));
+        screen.backgroundColor = UIColor.whiteColor();
+        self.view.addSubview(screen);
+    }
+    
+    func addTopBar(){
+        let screen = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.size.width, height: 18));
+        screen.backgroundColor = UIColor.whiteColor();
+        self.view.addSubview(screen);
+    }
+    
+    func addInfoButton(){
+        let optionsX = (UIScreen.mainScreen().bounds.width * 0.5) - (options.legendView.frame.size.width * 0.5);
+        options.view.frame = CGRect(origin: CGPoint(x: optionsX, y: 30), size: options.view.frame.size);
+        notificationCenter.addObserverForName("ResetButtonTouched", object: nil, queue: NSOperationQueue.mainQueue()){ _ in
+            var alertView = UIAlertController(title: "Reset Seats", message: "Are you sure you want to reset all the seats? This can't be undone.", preferredStyle: UIAlertControllerStyle.Alert);
+            alertView.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel, handler: nil))
+            alertView.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default){ _ in
+                self.resetSeats();
+            })
+            self.presentViewController(alertView, animated: true, completion: nil);
+        }
+        
+        self.view.addSubview(options.view);
     }
     
     func addSeat(seat: SeatController){
@@ -87,32 +152,34 @@ class SeatChartController: UIViewController, UIPopoverPresentationControllerDele
                 }
                 
                 if let stored:SeatController = self.storedSeats[seatNumbers[row][column]] as? SeatController {
+                    seats.append(stored)
                     addSeat(stored);
                     continue;
                 }
                 
                 seat = SeatController(
                     frame: CGRect(
-                        x: (column * 50) + 40,
-                        y: (row * 50) + 100,
+                        x: (column * 50),
+                        y: (row * 50),
                         width: 40,
                         height: 40),
                     number: seatNumbers[row][column],
                     column: column,
                     row: row);
+                seats.append(seat);
                 addSeat(seat);
             }
         }
     }
     
     func getSavedSeats(){
-        let seats = self.context!.executeFetchRequest(request, error: nil) as [Seat]!;
+        let savedSeats = self.context!.executeFetchRequest(request, error: nil) as [Seat]!;
         
-        if(seats.count > 0){
-            for seat in seats{
+        if(savedSeats.count > 0){
+            for seat in savedSeats{
                 var currentFrame = CGRect(
-                    x: (seat.column.integerValue * 50) + 40,
-                    y: (seat.row.integerValue * 50) + 100,
+                    x: (seat.column.integerValue * 50),
+                    y: (seat.row.integerValue * 50),
                     width: 40,
                     height: 40)
                 var currentSeat = SeatController(frame: currentFrame, number: seat.seatNumber, column: seat.column.integerValue, row: seat.row.integerValue);
@@ -120,15 +187,19 @@ class SeatChartController: UIViewController, UIPopoverPresentationControllerDele
                 self.storedSeats[seat.seatNumber] = currentSeat;
             }
         }
-//        if(storedSeats.count > 0){
-//            var seat = storedSeats[0] as Seat;
-//            println(seat.seatNumber);
-//        }
-        
     }
     
-    func checkForSavedSeat(){
+    func resetSeats(){
+        for seat in self.seats{
+            seat.changeSeat(.Normal);
+        }
         
+        let savedSeats = self.context!.executeFetchRequest(request, error: nil) as [Seat]!;
+        if(savedSeats.count > 0){
+            for seat in savedSeats{
+                self.context.deleteObject(seat);
+            }
+        }
     }
     
     func onSeatTouch(seat:SeatController){
@@ -141,7 +212,7 @@ class SeatChartController: UIViewController, UIPopoverPresentationControllerDele
         popover.contentViewController = popoverController;
         popoverController.chartController = self;
         popoverController.seat = seat;
-        popover.presentPopoverFromRect(seat.frame, inView: self.view, permittedArrowDirections: .Any, animated: true);
+        popover.presentPopoverFromRect(seat.frame, inView: self.seatLayer!, permittedArrowDirections: .Any, animated: true);
     }
     
     func onSeatOptionPicked(seat:SeatController, option:SeatType){

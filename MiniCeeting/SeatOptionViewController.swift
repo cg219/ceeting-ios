@@ -16,11 +16,12 @@ class SeatOptionViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad();
         
-        self.view.backgroundColor = UIColor.blackColor();
+        self.view.backgroundColor = UIColor.whiteColor();
         
         let empty:UIButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 50));
         empty.setTitle("Empty Seat", forState: .Normal);
         empty.titleLabel?.font = UIFont(name: "Helvetica", size: 12);
+        empty.setTitleColor(UIColor(red: 0, green: 0.06, blue: 0.1, alpha: 1), forState: .Normal);
         empty.addTarget(self, action: "chooseEmpty", forControlEvents: UIControlEvents.TouchUpInside);
         empty.addTarget(self, action: "onTouchDown:", forControlEvents: UIControlEvents.TouchDown);
         empty.addTarget(self, action: "onTouchUp:", forControlEvents: UIControlEvents.TouchUpInside);
@@ -29,6 +30,7 @@ class SeatOptionViewController: UIViewController{
         let reserved:UIButton = UIButton(frame: CGRect(x: 0, y: 50, width: 100, height: 50));
         reserved.setTitle("Reserved Seat", forState: .Normal);
         reserved.titleLabel?.font = UIFont(name: "Helvetica", size: 12);
+        reserved.setTitleColor(UIColor(red: 0, green: 0.06, blue: 0.1, alpha: 1), forState: .Normal);
         reserved.addTarget(self, action: "chooseReserved", forControlEvents: UIControlEvents.TouchUpInside);
         reserved.addTarget(self, action: "onTouchDown:", forControlEvents: UIControlEvents.TouchDown);
         reserved.addTarget(self, action: "onTouchUp:", forControlEvents: UIControlEvents.TouchUpInside);
@@ -37,6 +39,7 @@ class SeatOptionViewController: UIViewController{
         let comped:UIButton = UIButton(frame: CGRect(x: 0, y: 100, width: 100, height: 50));
         comped.setTitle("Comped Seat", forState: .Normal);
         comped.titleLabel?.font = UIFont(name: "Helvetica", size: 12);
+        comped.setTitleColor(UIColor(red: 0, green: 0.06, blue: 0.1, alpha: 1), forState: .Normal);
         comped.addTarget(self, action: "chooseComped", forControlEvents: UIControlEvents.TouchUpInside);
         comped.addTarget(self, action: "onTouchDown:", forControlEvents: UIControlEvents.TouchDown);
         comped.addTarget(self, action: "onTouchUp:", forControlEvents: UIControlEvents.TouchUpInside);
@@ -45,6 +48,7 @@ class SeatOptionViewController: UIViewController{
         let taken:UIButton = UIButton(frame: CGRect(x: 0, y: 150, width: 100, height: 50));
         taken.setTitle("Taken Seat", forState: .Normal);
         taken.titleLabel?.font = UIFont(name: "Helvetica", size: 12);
+        taken.setTitleColor(UIColor(red: 0, green: 0.06, blue: 0.1, alpha: 1), forState: .Normal);
         taken.addTarget(self, action: "chooseTaken", forControlEvents: UIControlEvents.TouchUpInside);
         taken.addTarget(self, action: "onTouchDown:", forControlEvents: UIControlEvents.TouchDown);
         taken.addTarget(self, action: "onTouchUp:", forControlEvents: UIControlEvents.TouchUpInside);
@@ -102,7 +106,7 @@ class SeatOptionViewController: UIViewController{
     }
 
     required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError("init(coder:) has not been implemented");
     }
     
     override func didReceiveMemoryWarning() {

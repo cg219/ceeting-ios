@@ -18,8 +18,8 @@
 		0DAA696B1A6B3B1700454F2B /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAA696A1A6B3B1700454F2B /* Array2D.swift */; };
 		0DAA69751A7442AD00454F2B /* Seat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAA69741A7442AD00454F2B /* Seat.swift */; };
 		0DAA69771A744DF300454F2B /* SeatOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAA69761A744DF300454F2B /* SeatOptionViewController.swift */; };
-		0DCBF8301A74D35A00751391 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DAA69451A6B22EE00454F2B /* Main.storyboard */; };
-		0DCBF8311A74D36000751391 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DAA694A1A6B22EE00454F2B /* LaunchScreen.xib */; };
+		0DCBF8351A74E54C00751391 /* OptionsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCBF8341A74E54C00751391 /* OptionsPanel.swift */; };
+		0DCBF83A1A75ABBE00751391 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DCBF8391A75ABBE00751391 /* Launch Screen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,9 +37,7 @@
 		0DAA693D1A6B22EE00454F2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DAA693E1A6B22EE00454F2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DAA69411A6B22EE00454F2B /* MiniCeeting.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MiniCeeting.xcdatamodel; sourceTree = "<group>"; };
-		0DAA69461A6B22EE00454F2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0DAA69481A6B22EE00454F2B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		0DAA694B1A6B22EE00454F2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		0DAA69511A6B22EE00454F2B /* MiniCeetingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiniCeetingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DAA69561A6B22EE00454F2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DAA69571A6B22EE00454F2B /* MiniCeetingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniCeetingTests.swift; sourceTree = "<group>"; };
@@ -54,6 +52,8 @@
 		0DAA69761A744DF300454F2B /* SeatOptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeatOptionViewController.swift; sourceTree = "<group>"; };
 		0DAA697C1A74A05C00454F2B /* MiniCeeting 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MiniCeeting 4.xcdatamodel"; sourceTree = "<group>"; };
 		0DAA697D1A74BB3600454F2B /* MiniCeeting 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MiniCeeting 5.xcdatamodel"; sourceTree = "<group>"; };
+		0DCBF8341A74E54C00751391 /* OptionsPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsPanel.swift; sourceTree = "<group>"; };
+		0DCBF8391A75ABBE00751391 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,11 +103,11 @@
 				0DAA696A1A6B3B1700454F2B /* Array2D.swift */,
 				0DAA69741A7442AD00454F2B /* Seat.swift */,
 				0DAA69681A6B30B400454F2B /* SeatChartController.swift */,
+				0DCBF8391A75ABBE00751391 /* Launch Screen.xib */,
+				0DCBF8341A74E54C00751391 /* OptionsPanel.swift */,
 				0DAA69661A6B289300454F2B /* SeatController.swift */,
 				0DAA69761A744DF300454F2B /* SeatOptionViewController.swift */,
 				0DAA69481A6B22EE00454F2B /* Images.xcassets */,
-				0DAA69451A6B22EE00454F2B /* Main.storyboard */,
-				0DAA694A1A6B22EE00454F2B /* LaunchScreen.xib */,
 				0DAA69401A6B22EE00454F2B /* MiniCeeting.xcdatamodeld */,
 				0DAA693C1A6B22EE00454F2B /* Supporting Files */,
 			);
@@ -221,9 +221,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DCBF8311A74D36000751391 /* LaunchScreen.xib in Resources */,
-				0DCBF8301A74D35A00751391 /* Main.storyboard in Resources */,
 				0DAA69491A6B22EE00454F2B /* Images.xcassets in Resources */,
+				0DCBF83A1A75ABBE00751391 /* Launch Screen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DAA69671A6B289300454F2B /* SeatController.swift in Sources */,
+				0DCBF8351A74E54C00751391 /* OptionsPanel.swift in Sources */,
 				0DAA69421A6B22EE00454F2B /* MiniCeeting.xcdatamodeld in Sources */,
 				0DAA69751A7442AD00454F2B /* Seat.swift in Sources */,
 				0DAA69691A6B30B400454F2B /* SeatChartController.swift in Sources */,
@@ -284,25 +284,6 @@
 			targetProxy = 0DAA69521A6B22EE00454F2B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		0DAA69451A6B22EE00454F2B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0DAA69461A6B22EE00454F2B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		0DAA694A1A6B22EE00454F2B /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0DAA694B1A6B22EE00454F2B /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		0DAA69591A6B22EE00454F2B /* Debug */ = {
@@ -392,6 +373,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -408,6 +390,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

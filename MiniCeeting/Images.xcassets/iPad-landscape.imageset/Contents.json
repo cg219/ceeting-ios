@@ -3,17 +3,16 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "Launch Screen.png"
+      "filename" : "iPad-landscape.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "Launch Screen@2x.png"
+      "filename" : "iPad-landscape@2x.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "Launch Screen@3x.png"
+      "scale" : "3x"
     }
   ],
   "info" : {

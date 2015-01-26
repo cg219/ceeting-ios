@@ -16,6 +16,8 @@ class OptionsPanel: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.frame = CGRect(x: 0, y: 0, width: 175, height: 90);
+        
         var resetButton =  UIButton(frame: CGRect(x: 30, y: 0, width: 100, height: 20));
         resetButton.setTitle("Reset Seats", forState: .Normal);
         resetButton.titleLabel?.font = UIFont(name: "Helvetica", size: 12);

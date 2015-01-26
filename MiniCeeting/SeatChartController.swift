@@ -86,15 +86,15 @@ class SeatChartController: UIViewController, UIPopoverPresentationControllerDele
         self.view.backgroundColor = UIColor(red: 0, green: 0.06, blue: 0.1, alpha: 1);
         seatLayer = UIView( frame: CGRect(
             x: 40,
-            y: 130,
+            y: 40,
             width: self.view.frame.size.width,
             height: self.view.frame.size.height));
         initSeats();
-        addInfoButton();
         addScreen();
         addTopBar();
-        imkreative.view.addSubview(imkreativeView);
         self.view.addSubview(seatLayer!);
+        addLegend();
+        imkreative.view.addSubview(imkreativeView);
         self.view.addSubview(imkreative.view);
     }
     
@@ -117,14 +117,15 @@ class SeatChartController: UIViewController, UIPopoverPresentationControllerDele
     }
     
     func addTopBar(){
-        let screen = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.size.width, height: 18));
+        let screen = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.mainScreen().bounds.size.width, height: 20));
         screen.backgroundColor = UIColor.whiteColor();
         self.view.addSubview(screen);
     }
     
-    func addInfoButton(){
-        let optionsX = (UIScreen.mainScreen().bounds.width * 0.5) - (options.legendView.frame.size.width * 0.5);
-        options.view.frame = CGRect(origin: CGPoint(x: optionsX, y: 30), size: options.view.frame.size);
+    func addLegend(){
+        let optionsX = UIScreen.mainScreen().bounds.width - (options.view.frame.size.width + 40);
+        let optionsY = UIScreen.mainScreen().bounds.height - (options.view.frame.size.height + 10);
+        options.view.frame = CGRect(origin: CGPoint(x: optionsX, y: optionsY), size: options.view.frame.size);
         notificationCenter.addObserverForName("ResetButtonTouched", object: nil, queue: NSOperationQueue.mainQueue()){ _ in
             var alertView = UIAlertController(title: "Reset Seats", message: "Are you sure you want to reset all the seats? This can't be undone.", preferredStyle: UIAlertControllerStyle.Alert);
             alertView.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel, handler: nil))
